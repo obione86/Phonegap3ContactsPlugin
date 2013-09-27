@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="com.huronasolutions.plugins.ContactsPlugin.ContactView"
+      version="0.1.0">
+    <name>Contact Plugin</name>
+    <description>Phonegap 3.0 Plugin for selecting contacts from native addressbook</description>
+    <license>MIT</license>
+    <keywords>phonegap,contacts</keywords>
+
+
+    <js-module src="www/ContactView.js" name="ContactView">
+        <clobbers target="window.contactview" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+          
+    <feature name="PayPal">
+        <param name="android-package" value="com.huronasolutions.plugins.ContactsPlugin.ContactView" />
+    </feature>
+        </config-file>
+
+        <source-file src="src/android/ContactView.java" target-dir="src/com/huronasolutions/plugins/ContactsPlugin" />      
+     </platform>          
+</plugin>
