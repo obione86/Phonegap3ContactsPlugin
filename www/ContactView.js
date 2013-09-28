@@ -1,8 +1,8 @@
-cordova.define("com.huronasolutions.plugins.ContactsPlugin.ContactView", function (require, exports, module) {
+
     var exec = require("cordova/exec");
 
 
-    var contactView = {
+    var contactview = {
         show: function (successCallback, failCallback) {
 
             function success(args) {
@@ -23,6 +23,5 @@ cordova.define("com.huronasolutions.plugins.ContactsPlugin.ContactView", functio
                 []);
         }
     }
-    module.exports = contactView;
+    module.exports = contactview;
 
-});
