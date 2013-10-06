@@ -45,11 +45,14 @@ public class ContactView extends CordovaPlugin {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see org.apache.cordova.CordovaPlugin#onActivityResult(int, int, android.content.Intent)
+	 */
 	@Override
 	public void onActivityResult(int reqCode, int resultCode, Intent data) {
 		String name = null;
 		String number = null;
-		String email = null;
+		
 		switch (reqCode) {
 		case (PICK_CONTACT):
 			if (resultCode == Activity.RESULT_OK) {
@@ -79,7 +82,7 @@ public class ContactView extends CordovaPlugin {
 						}
 					}
 					// get email address
-					Cursor emailCur = this.cordova
+					/*Cursor emailCur = this.cordova
 							.getActivity()
 							.getContentResolver()
 							.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
@@ -96,7 +99,7 @@ public class ContactView extends CordovaPlugin {
 						// String emailType = emailCur.getString(
 						// emailCur.getColumnIndex(ContactsContract.CommonDataKinds.Email.TYPE));
 					}
-					emailCur.close();
+					emailCur.close();*/
 
 					name = c.getString(c
 							.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME));
@@ -104,7 +107,7 @@ public class ContactView extends CordovaPlugin {
 					try {
 						contactObject.put("name", name);
 						contactObject.put("phone", number);
-						contactObject.put("email", email);
+//						contactObject.put("email", email);
 						contactObject.put("status", 1);
 					} catch (JSONException e) {
 						System.err.println("Exception: " + e.getMessage());
